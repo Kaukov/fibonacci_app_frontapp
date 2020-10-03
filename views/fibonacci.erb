@@ -1,14 +1,37 @@
-<h1>Fibonacci multiplication table</h1>
-<p>This view is still not implemented.</p>
-
-<!--- Render size input here -->
+<div class="container">
+  <h1 id="fibonacci-header">Fibonacci multiplication table</h1>
+</div>
+<div class="container">
+  <form action="/fibonacci">
+    <span id="size-text">Size:</span>
+    <input type="number" name="n" id="size-input" placeholder="The 'n' parameter" value="<%= size %>" />
+    <button id="generate-btn">Generate</button>
+  </form>
+</div>
 
 <% if table %>
-  <!--- Render table here -->
+<div class="container column">
+  <% if table.is_a?(String) %>
+    <h1 id="error-msg"><%= table %></h1>
+  <% elsif table.is_a?(Array) %>
+    <table id="fibonacci-table">
+      <% for row in table %>
+        <tr>
+          <% for item in row %>
+            <td><%= item %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
 
   <% if saved %>
-    <p>Saved!</p>
-  <% else %>
-    <!--- Render save button here -->
+    <span id="saved-text">&check; Saved!</span>
+  <% elsif table.is_a?(Array) %>
+    <form id="save-form" method="post" action="/fibonacci">
+      <input type="hidden" name="n" value="<%= size %>">
+      <button id="save-btn">Save</button>
+    </form>
   <% end %>
+</div>
 <% end %>

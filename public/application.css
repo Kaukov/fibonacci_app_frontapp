@@ -1,1 +1,96 @@
-/* CSS goes here */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.container.column {
+  display: flex;
+  flex-direction: column;
+}
+
+#fibonacci-header {
+  margin-bottom: 20px;
+}
+
+#size-input {
+  max-width: 120px;
+  margin-left: 5px;
+  margin-right: 20px;
+  padding: 5px;
+
+  /* Remove the arrows on Gecko-based browsers */
+  -moz-appearance: textfield;
+}
+
+/* Remove the arrows on WebKit-based browsers */
+#size-input::-webkit-outer-spin-button,
+#size-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#generate-btn,
+#save-btn {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 2px solid #000000;
+  font-weight: bold;
+}
+
+#generate-btn:hover,
+#save-btn:hover {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+#generate-btn:active,
+#save-btn:active {
+  border-radius: 5px;
+  background-color: #000000;
+  color: #ffff00;
+  -moz-box-shadow: inset 0 0 5px #000000;
+  -webkit-box-shadow: inset 0 0 5px #000000;
+  box-shadow: inset 0 0 5px #000000;
+}
+
+#error-msg {
+  font-weight: bold;
+  color: #FF0000;
+}
+
+#fibonacci-table {
+  border-collapse: collapse;
+  margin-top: 20px;
+  display: inline-table;
+}
+
+#fibonacci-table td {
+  border: 3px solid #000000;
+  padding: 10px;
+}
+
+#save-btn {
+  margin: 20px auto;
+}
+
+#saved-text {
+  margin: 20px auto;
+  font-size: 1.2em;
+  color: #009700;
+}
