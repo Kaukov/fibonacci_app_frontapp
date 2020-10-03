@@ -1,6 +1,11 @@
 require 'sinatra'
 
-set :public_folder, 'public'
+set :public_folder, __dir__ + '/public'
+set :fibonacci_api, 'http://localhost:3000/fibonacci'
+
+get '/' do
+  erb :home, locals: {fibonacciPath: '/fibonacci'}, layout: :application
+end
 
 get '/fibonacci' do
   table = nil # GET http://backapp/fibonacci?n=* (body)
